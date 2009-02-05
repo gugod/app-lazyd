@@ -7,7 +7,7 @@ our $VERSION = '0.01';
 
 use Net::Delicious;
 use URI::Title qw( title );
-use Data::Dump qw(pp);
+
 sub run {
     my (undef, $config, $url, @tags) = @_;
 
