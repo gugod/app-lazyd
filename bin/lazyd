@@ -1,0 +1,14 @@
+#!env perl
+
+use strict;
+use warnings;
+use App::Lazyd;
+
+my $ok = App::Lazyd->run($config, @ARGV);
+
+if ($ok) {
+    print "That's deliicous, $ENV{USER}.\n";
+}
+else {
+    print STDERR "Error posting delicious.com, you might want to try again latter.\n";
+}

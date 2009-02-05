@@ -2,7 +2,11 @@ use inc::Module::Install;
 name 'App-Lazyd';
 all_from 'lib/App/Lazyd.pm';
 
-# requires '';
+requires
+    'Net::Delicious' => '1.13',
+    'URI::Title' => '1.82';
+
+scripts 'bin/lazyd';
 
 tests 't/*.t';
 author_tests 'xt';
