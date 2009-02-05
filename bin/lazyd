@@ -3,8 +3,22 @@
 use strict;
 use warnings;
 use App::Lazyd;
+use YAML::Tiny;
 
-my $ok = App::Lazyd->run($config, @ARGV);
+unless (-f "$ENV{HOME}/.lazyd") {
+    die <<USAGE;
+Please add a ~/.lazyd config file looks like this
+
+    username: foo
+    password: foo31337
+
+USAGE
+
+}
+
+my $yaml = YAML::Tiny->read("$ENV{HOME}/.lazyd");
+
+my $ok = App::Lazyd->run($yaml->[0], @ARGV);
 
 if ($ok) {
     print "That's deliicous, $ENV{USER}.\n";

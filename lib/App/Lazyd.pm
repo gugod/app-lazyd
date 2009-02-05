@@ -7,13 +7,16 @@ our $VERSION = '0.01';
 
 use Net::Delicious;
 use URI::Title qw( title );
-
+use Data::Dump qw(pp);
 sub run {
-    my ($self, $config, $title, @tags) = @_;
+    my (undef, $config, $url, @tags) = @_;
 
     die "Need to set both username and password."
 	unless defined($config->{username}) && defined($config->{password});
-    
+
+    die "You should give me an URL, dude.\n"
+	unless defined $url;
+
     my $del = Net::Delicious->new({
 	user => $config->{username},
 	pswd => $config->{password}
@@ -23,7 +26,7 @@ sub run {
 
     $del->add_post({
 	url => $url,
-	tags => join " ", @tags, split /\W/, "$url  $title",
+	tags => join(" ", @tags, split(/\W/, "$url  $title")),
 	description => $url,
     });
 }
