@@ -7,7 +7,7 @@ requires
     'URI::Title' => '1.82',
     'YAML::Tiny' => '1.36';
 
-scripts 'bin/lazyd';
+install_script 'bin/lazyd';
 
 tests 't/*.t';
 author_tests 'xt';
