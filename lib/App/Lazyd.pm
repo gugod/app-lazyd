@@ -38,11 +38,9 @@ __END__
 
 App::Lazyd - quick and lazy way to add delicious.com bookmarks.
 
-=head1 SYNOPSIS
-
-  use App::Lazyd;
-
 =head1 DESCRIPTION
+
+See the document of lazyd program.
 
 =head1 AUTHOR
 
